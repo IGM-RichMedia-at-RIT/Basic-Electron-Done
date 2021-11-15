@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel ./client/mainPage.jsx --out-file ./hosted/renderer.js"
+    "build": "babel ./client/homePage.jsx --out-file ./hosted/homePage.js"
   },
   "author": "Austin Willoughby",
   "license": "UNLICENSED",

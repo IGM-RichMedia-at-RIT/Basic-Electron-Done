@@ -17,7 +17,7 @@ const createWindow = () => {
     });
 
     //Have our window load a file. In this case, from our file structure.
-    win.loadFile('./hosted/index.html');
+    win.loadFile('./hosted/homePage.html');
 }
 
 //When the app is ready, then create the window.
