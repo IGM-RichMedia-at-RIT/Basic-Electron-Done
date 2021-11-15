@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello Electron!</title>
+
+    <meta charset="UTF-8">
+    <!-- We want to prevent cross origin access to our page. Remember, electron has full file system access and so
+    other external resources having access to our page is far more dangerous than it would be in just a browser.
+    Here we are automatically denying all access to anything but ourself and the URLs where we get the React library -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com/react@17/ https://unpkg.com/react-dom@17/">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com/react@17/ https://unpkg.com/react-dom@17/">
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+</head>
+
+<body>
+    <section id="content"></section>
+    We are using Node.js <span id="node-version"></span>,
+    Chromium <span id="chrome-version"></span>,
+    and Electron <span id="electron-version"></span>.
+
+    <script src="./renderer.js"></script>
+</body>
+
+</html>

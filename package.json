@@ -1,0 +1,19 @@
+{
+  "name": "electron-test",
+  "version": "1.0.0",
+  "description": "A basic electron tutorial based on https://www.electronjs.org/docs/latest/tutorial/quick-start",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel ./client/mainPage.jsx --out-file ./hosted/renderer.js"
+  },
+  "author": "Austin Willoughby",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "electron": "^15.3.1"
+  }
+}
