@@ -3,25 +3,41 @@
 
 <head>
     <title>Hello Electron!</title>
-
     <meta charset="UTF-8">
-    <!-- We want to prevent cross origin access to our page.
-    Here we are automatically denying all access to anything 
-    but ourself and the URLs where we get the React library -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com/react@17/ https://unpkg.com/react-dom@17/">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com/react@17/ https://unpkg.com/react-dom@17/">
+    <!-- Here we have a content security policy of CSP. CSP allows us to
+         secure our client side by telling the underlying browser (electron
+         just runs a chromium window after all) to not allow connections to
+         resources that we don't specifically define. In this case, we can
+         only connect to 'self' which is our electron app. 
+         
+         If we wanted to load images or scripts from another domain, we would
+         need to update the CSP to allow for that. Websites like this
+         https://report-uri.com/home/generate allow for easy CSP generation.
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
 
-    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Here we are loading our homePageBundle.js. Note that we do not have
+         any code written that "serves" this file. Normally in a web application
+         with distinct client and server sides we need to statically host
+         resources like our bundles and html pages. However, electron allows
+         us to utilize the filesystem since everything is running locally on
+         the machine.
+
+         We can have an additional web server and make requests to it, but
+         that would be a separate node project entirely.
+    -->
+    <script src='homePageBundle.js'></script>
 </head>
 
 <body>
     <section id="content"></section>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
 
-    <script src="homePage.js"></script>
+    <!-- These spans are filled in in preload.js before the page displays -->
+    <div>
+        We are using Node.js <span id="node-version"></span>,
+        Chromium <span id="chrome-version"></span>,
+        and Electron <span id="electron-version"></span>.
+    </div>
 </body>
 
 </html>

@@ -1,19 +1,26 @@
 {
-  "name": "electron-test",
+  "name": "electrondemo",
   "version": "1.0.0",
-  "description": "A basic electron tutorial based on https://www.electronjs.org/docs/latest/tutorial/quick-start",
+  "description": "A basic electron demo",
   "main": "electron/main.js",
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel ./client/homePage.jsx --out-file ./hosted/homePage.js"
+    "webpack": "webpack",
+    "package": "npx electron-packager ."
   },
   "author": "Austin Willoughby",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.0",
-    "@babel/preset-react": "^7.16.0",
-    "electron": "^15.3.1"
+    "@babel/core": "^7.17.8",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.4",
+    "electron": "^17.2.0",
+    "electron-packager": "^15.4.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "terser-webpack-plugin": "^5.3.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
   }
 }

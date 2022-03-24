@@ -1,14 +1,22 @@
-//Add an event for when the DOM Content has loaded
+/* This script is being used as the preload script from our
+   browserWindow (defined in main.js). When we create our window
+   and load the page, we can add some events that fire before any
+   other events fire on that page.
+
+   In this case, when the dom loads, we are going to search for
+   some elements by id (chrome-version, node-version, electron-version).
+   When we find them, we will grab the version numbers from the built in
+   process.versions environment variable and add their version
+   numbers to the page.
+*/
+
 window.addEventListener('DOMContentLoaded', () => {
-    //Once it has, create a helper function for replacing text in elements.
     const replaceText = (selector, text) => {
         const element = document.getElementById(selector);
-        if(element) { element.innerText = text; }
+        if(element) { element.innerHTML = text; }
     };
 
-    //For each dependency (chrome, node, and electron)
     for(const dependency of ['chrome', 'node', 'electron']) {
-        //Find the text in the page that lists that version, and give it the actual version
         replaceText(`${dependency}-version`, process.versions[dependency]);
     }
 });
