@@ -28,7 +28,7 @@ const createWindow = () => {
         height: 600,
         webPreferences: { 
             preload: `${__dirname}/preload.js`,
-            devTools: false,
+            //devTools: false,
         }        
     });
 
@@ -36,7 +36,7 @@ const createWindow = () => {
        the electron window. You can also customize this menu if you
        want to.
     */
-    win.removeMenu();
+    //win.removeMenu();
 
     /* Finally we will load our html file into the window. This is
        like telling our browser to navigate to a specific page (although

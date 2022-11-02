@@ -8,7 +8,12 @@
          secure our client side by telling the underlying browser (electron
          just runs a chromium window after all) to not allow connections to
          resources that we don't specifically define. In this case, we can
-         only connect to 'self' which is our electron app. 
+         only connect to 'self' which is our electron app.
+
+         CSP is crucially important in Electron applications, because unlike our
+         browser apps, we are not in the browser sandbox. Electron apps have the
+         ability to write to our hard drives, edit files, read files, etc.
+         Therefore we want them to be very secure.
          
          If we wanted to load images or scripts from another domain, we would
          need to update the CSP to allow for that. Websites like this
@@ -38,6 +43,12 @@
         Chromium <span id="chrome-version"></span>,
         and Electron <span id="electron-version"></span>.
     </div>
+
+    <!-- Loading new pages in electron is very similar to loading pages in
+    a web browser. We simply need to navigate to them. Electron lets us
+    load files straight from our hard drive so there is no need for us
+    to write a server that serves these files.-->
+    <a href="otherPage.html">Other Page!</a>
 </body>
 
 </html>
